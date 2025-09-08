@@ -1,0 +1,24 @@
+.marqueeContainer {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.marqueeContainer:hover {
+  animation-play-state: paused;
+}
+
+.marqueeContent {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 1.5rem));
+  }
+}
