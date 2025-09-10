@@ -1,4 +1,5 @@
 ﻿import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 interface ImageHeroProps {
   imageSrc: string;
@@ -9,15 +10,23 @@ const ImageHero = ({
 }: ImageHeroProps) => {
   return (
     <div className="relative w-full h-[90vh] sm:h-[100vh] overflow-hidden text-left">
-      {/* Image background */}
-      <img
+      {/* Image background with fade-in */}
+      <motion.img
         src={imageSrc}
         alt="Beautiful Landscaped Home"
         className="absolute top-0 left-0 w-full h-full object-cover"
+        initial={{ opacity: 0, scale: 1.1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.8, ease: "easeOut" }}
       />
       
       {/* Dark overlay with gradient - increased opacity for better text clarity */}
-      <div className="absolute inset-0 bg-black/60 sm:bg-black/50"></div>
+      <motion.div 
+        className="absolute inset-0 bg-black/60 sm:bg-black/50"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+      ></motion.div>
       
       {/* Content */}
       <div className="relative h-full flex flex-col justify-center">
@@ -25,25 +34,45 @@ const ImageHero = ({
           <div className="max-w-4xl">
             {/* Two-line heading with different styling per line */}
             <div className="mb-4 sm:mb-8">
-              <h1 className="font-switzer text-5xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-white leading-tight mb-0">
+              <motion.h1 
+                className="font-switzer text-5xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-white leading-tight mb-0"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+              >
                 LANDSCAPES
-              </h1>
-              <h1 className="font-switzer text-5xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-white leading-tight flex flex-wrap sm:flex-nowrap items-center">
+              </motion.h1>
+              <motion.h1 
+                className="font-switzer text-5xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-white leading-tight flex flex-wrap sm:flex-nowrap items-center"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+              >
                 THAT <span className="italic ml-0 sm:ml-4 font-extrabold">INSPIRE</span>
-              </h1>
+              </motion.h1>
             </div>
             
             {/* Left border with text description - exactly matching screenshot */}
-            <div className="border-l-4 border-white pl-4 sm:pl-6 mb-6 sm:mb-10">
+            <motion.div 
+              className="border-l-4 border-white pl-4 sm:pl-6 mb-6 sm:mb-10"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
+            >
               <p className="font-switzer text-white text-sm sm:text-lg md:text-xl max-w-2xl">
                 Crafting dream gardens with passion, creativity, and
                 sustainability for over a decade with our experienced
                 landscape artists and gardener teams.
               </p>
-            </div>
+            </motion.div>
             
             {/* Buttons - left-aligned and side by side on all devices */}
-            <div className="flex flex-row gap-4 sm:gap-6">
+            <motion.div 
+              className="flex flex-row gap-4 sm:gap-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.4, ease: "easeOut" }}
+            >
               <Button 
                 asChild
                 className="bg-white hover:bg-gray-100 text-gray-800 font-switzer font-medium text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-4 sm:py-4 md:py-6 h-auto rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex-1 sm:flex-none"
@@ -63,7 +92,7 @@ const ImageHero = ({
                   </svg>
                 </a>
               </Button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

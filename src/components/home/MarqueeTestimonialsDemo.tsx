@@ -1,3 +1,4 @@
+//import { motion } from "framer-motion";
 import MarqueeTestimonials from "./MarqueeTestimonials";
 
 const testimonials = [

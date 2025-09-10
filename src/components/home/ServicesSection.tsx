@@ -90,7 +90,7 @@ const ServicesSection = () => {
     setActiveIndex((prevIndex) => 
       prevIndex === 0 ? services.length - 1 : prevIndex - 1
     );
-    setTimeout(() => setIsAnimating(false), 500); // Match animation duration
+    setTimeout(() => setIsAnimating(false), 700); // Match animation duration
   };
   
   const handleNext = () => {
@@ -100,7 +100,7 @@ const ServicesSection = () => {
     setActiveIndex((prevIndex) => 
       prevIndex === services.length - 1 ? 0 : prevIndex + 1
     );
-    setTimeout(() => setIsAnimating(false), 500); // Match animation duration
+    setTimeout(() => setIsAnimating(false), 700); // Match animation duration
   };
   
   const handleDotClick = (index: number) => {
@@ -274,15 +274,27 @@ const ServicesSection = () => {
       <div className="container mx-auto px-5 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <div className="flex items-center justify-center mb-2">
+          <motion.div 
+            className="flex items-center justify-center mb-2"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <div className="h-[1px] w-8 sm:w-12 bg-forest-600"></div>
             <span className="mx-3 sm:mx-4 text-forest-600 font-medium text-xs sm:text-sm uppercase tracking-wider">Our Services</span>
             <div className="h-[1px] w-8 sm:w-12 bg-forest-600"></div>
-          </div>
-          <h2 className="font-switzer text-2xl sm:text-3xl md:text-4xl font-bold text-forest-800 mt-3 px-4">
+          </motion.div>
+          <motion.h2 
+            className="font-switzer text-2xl sm:text-3xl md:text-4xl font-bold text-forest-800 mt-3 px-4"
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
+          >
             Custom Landscaping for <br className="hidden sm:block" />
             <span className="text-forest-700">Every Home and Lifestyle</span>
-          </h2>
+          </motion.h2>
         </div>
 
         {/* Professional 3D Card Carousel - Hidden on mobile, visible on tablet+ */}
@@ -392,10 +404,10 @@ const ServicesSection = () => {
                         {index === activeIndex && (
                           <motion.p 
                             className="text-sm font-medium text-white/90 mb-4 max-w-[90%] mx-auto"
-                            initial={{ opacity: 0, y: 10 }}
+                            initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 5 }}
-                            transition={{ delay: 0.2, duration: 0.4 }}
+                            exit={{ opacity: 0, y: 10 }}
+                            transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
                           >
                             {service.description}
                           </motion.p>
@@ -409,7 +421,7 @@ const ServicesSection = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 10 }}
-                            transition={{ delay: 0.3, duration: 0.4 }}
+                            transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
                             whileHover={{ scale: 1.05, boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)" }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -499,9 +511,9 @@ const ServicesSection = () => {
                       {/* Service Icon */}
                       <motion.div 
                         className="bg-white/20 p-4 rounded-full backdrop-blur-md border border-white/30 shadow-lg"
-                        initial={{ scale: 0.9, y: 10 }}
+                        initial={{ scale: 0.9, y: 15 }}
                         animate={{ scale: 1, y: 0 }}
-                        transition={{ duration: 0.4 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
                       >
                         <img 
                           src={services[activeIndex].icon} 
@@ -518,7 +530,7 @@ const ServicesSection = () => {
                         className="text-3xl font-bold mb-3 drop-shadow-lg tracking-tight"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
+                        transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
                       >
                         {services[activeIndex].title}
                       </motion.h3>
@@ -526,9 +538,9 @@ const ServicesSection = () => {
                       {/* Service Description */}
                       <motion.p 
                         className="text-sm font-medium text-white/95 mb-5 max-w-[90%] mx-auto"
-                        initial={{ opacity: 0, y: 15 }}
+                        initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
+                        transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
                       >
                         {services[activeIndex].description}
                       </motion.p>
@@ -539,7 +551,7 @@ const ServicesSection = () => {
                                  rounded-full font-medium text-sm shadow-md"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
+                        transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
                         whileTap={{ scale: 0.95 }}
                       >
                         Learn More
