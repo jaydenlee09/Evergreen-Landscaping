@@ -39,31 +39,31 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed w-full z-50 px-4 sm:px-6 md:px-8 pt-3">
+    <header className="fixed w-full z-50">
       <div 
-        className={`max-w-7xl mx-auto rounded-full transition-all duration-300 ${
+        className={`w-full transition-all duration-300 ${
           isScrolled 
-            ? 'bg-white/95 backdrop-blur-sm shadow-lg py-0.5' 
-            : 'bg-white/90 backdrop-blur-sm shadow-md py-1'
+            ? 'bg-white shadow-md py-2' 
+            : 'bg-white shadow-sm py-3'
         }`}
       >
-        <div className="px-3 sm:px-5 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
               src={everGreenCombinedLogo} 
               alt="EverGreen Landscaping Logo" 
-              className="h-16 transform -translate-y-0.5" 
+              className="h-14" 
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-5">
+          <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`font-body text-xs ${
+                className={`font-sans text-sm ${
                   location.pathname === link.path
                     ? 'text-forest-700 font-medium' 
                     : 'text-stone-800 hover:text-forest-600'
@@ -75,7 +75,7 @@ const Navbar = () => {
             <Button
               asChild
               variant="default"
-              className="bg-forest-600 text-white hover:bg-forest-700 text-xs py-0.5"
+              className="bg-forest-600 text-white hover:bg-forest-700 text-sm"
               size="sm"
             >
               <Link to="/contact">Contact</Link>
@@ -96,8 +96,8 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white rounded-2xl shadow-lg mt-2 overflow-hidden">
-            <nav className="flex flex-col py-4">
+          <div className="md:hidden bg-white shadow-md border-t">
+            <nav className="flex flex-col py-4 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}

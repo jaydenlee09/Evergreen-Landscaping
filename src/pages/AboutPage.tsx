@@ -1,27 +1,7 @@
 import { Button } from "@/components/ui/button";
+import TeamSection from "@/components/about/TeamSection";
 
 const AboutPage = () => {
-  // Team members data
-  const teamMembers = [
-    {
-      name: "Abdullah Bediway",
-      role: "Founder & Lead Designer",
-      bio: "With over 20 years of experience in landscape architecture, Abdullah founded EverGreen Landscaping with a vision to create sustainable outdoor spaces that enhance both the environment and people's lives.",
-      image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      name: "Oliver Sun",
-      role: "Landscape Architect",
-      bio: "Oliver holds a Master's degree in Landscape Architecture and specializes in native plant selection and sustainable garden design that thrives in the Pacific Northwest climate.",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      name: "River Ho",
-      role: "Project Manager",
-      bio: "River brings 15 years of construction and project management experience to ensure every EverGreen Landscaping project is completed on time, on budget, and to the highest quality standards.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-    }
-  ];
 
   // Core values
   const coreValues = [
@@ -63,16 +43,42 @@ const AboutPage = () => {
     }
   ];
 
+  // Import the about cover image
+  const aboutCoverImage = new URL('../assets/images/about-cover.webp', import.meta.url).href;
+  
   return (
     <>
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-forest-800 text-white">
+      {/* Header Section with Image Background */}
+      <section 
+        className="relative h-[50vh] min-h-[400px] w-full flex items-end overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url(${aboutCoverImage})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="w-full relative z-10 pb-12">
+          <div className="container mx-auto">
+            <div className="flex flex-col items-start px-6">
+              <div className="text-sm md:text-base text-white/80 font-medium tracking-wide mb-2 text-left font-switzer">
+                <span>Home</span>
+                <span className="mx-2">/</span>
+                <span>About</span>
+              </div>
+              <h1 className="text-5xl md:text-7xl font-bold text-white text-left font-switzer">
+                ABOUT US
+              </h1>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* About Content Section */}
+      <section className="pt-20 pb-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in font-playfair">About EverGreen Landscaping</h1>
-            <p className="text-xl text-forest-100 animate-fade-in-up">
-              Creating sustainable, beautiful landscapes in Vancouver since 2010
-            </p>
+          <div className="max-w-3xl mx-auto">
+
           </div>
         </div>
       </section>
@@ -82,8 +88,8 @@ const AboutPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <h2 className="text-3xl md:text-4xl font-bold text-forest-800 mb-6 font-playfair">Our Story</h2>
-              <div className="space-y-4 text-stone-700">
+              <h2 className="text-3xl md:text-4xl font-bold text-forest-800 mb-6 font-switzer">Our Story</h2>
+              <div className="space-y-4 text-stone-700 font-switzer">
                 <p>
                   EverGreen Landscaping was founded in 2010 by David Johnson, a passionate landscape architect with a vision to create outdoor spaces that harmonize with nature while meeting the unique needs of Vancouver residents.
                 </p>
@@ -102,7 +108,7 @@ const AboutPage = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-forest-200 rounded-lg transform rotate-3"></div>
                 <img
-                  src="https://images.unsplash.com/photo-1589910144147-5d870293c822?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                  src={new URL('../assets/images/team-photo.jpeg', import.meta.url).href}
                   alt="Landscaping team at work"
                   className="relative rounded-lg shadow-xl"
                 />
@@ -116,8 +122,8 @@ const AboutPage = () => {
       <section className="py-20 bg-stone-50">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-forest-800 mb-6 font-playfair">Our Core Values</h2>
-            <p className="text-stone-600">
+            <h2 className="text-3xl md:text-4xl font-bold text-forest-800 mb-6 font-switzer">Our Core Values</h2>
+            <p className="text-stone-600 font-switzer">
               These principles guide every decision we make and every project we undertake.
             </p>
           </div>
@@ -131,8 +137,8 @@ const AboutPage = () => {
                 <div className="mb-6 text-forest-600">
                   {value.icon}
                 </div>
-                <h3 className="text-2xl font-semibold text-forest-800 mb-4 font-playfair">{value.title}</h3>
-                <p className="text-stone-600">{value.description}</p>
+                <h3 className="text-2xl font-semibold text-forest-800 mb-4 font-switzer">{value.title}</h3>
+                <p className="text-stone-600 font-switzer">{value.description}</p>
               </div>
             ))}
           </div>
@@ -140,50 +146,19 @@ const AboutPage = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-forest-800 mb-6 font-playfair">Meet Our Team</h2>
-            <p className="text-stone-600">
-              Our talented team combines decades of experience with a passion for creating beautiful, sustainable landscapes.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <div 
-                key={index} 
-                className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="h-64 overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-forest-800 font-playfair">{member.name}</h3>
-                  <p className="text-forest-600 mb-4">{member.role}</p>
-                  <p className="text-stone-600">{member.bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TeamSection />
 
       {/* CTA Section */}
       <section className="py-16 bg-forest-700 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6 font-playfair">Ready to Transform Your Outdoor Space?</h2>
-            <p className="text-lg text-forest-100 mb-8">
+            <h2 className="text-3xl font-bold mb-6 font-switzer">Ready to Transform Your Outdoor Space?</h2>
+            <p className="text-lg text-forest-100 mb-8 font-switzer">
               Let our experienced team help you create the landscape of your dreams.
             </p>
             <Button
               asChild
-              className="bg-white text-forest-800 hover:bg-forest-100"
+              className="bg-white text-forest-800 hover:bg-forest-100 font-switzer"
             >
               <a href="/contact">Schedule a Consultation</a>
             </Button>

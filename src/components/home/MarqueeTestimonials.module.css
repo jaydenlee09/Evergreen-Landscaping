@@ -1,7 +1,8 @@
 .marqueeContainer {
   display: flex;
   width: max-content;
-  animation: scroll 40s linear infinite;
+  animation: scroll 60s linear infinite;
+  will-change: transform;
 }
 
 .marqueeContainer:hover {
@@ -12,6 +13,7 @@
   display: flex;
   width: max-content;
   gap: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 @keyframes scroll {
@@ -19,6 +21,6 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-100% - 1.5rem));
+    transform: translateX(calc(-50%));
   }
 }

@@ -8,9 +8,10 @@ export default {
     extend: {
       fontFamily: {
         heading: ['Playfair Display', 'serif'],
-        sans: ['Inter', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        sans: ['Switzer', 'Inter', 'sans-serif'],
+        body: ['Switzer', 'Inter', 'sans-serif'],
         playfair: ['Playfair Display', 'serif'],
+        switzer: ['Switzer', 'sans-serif'],
       },
       maxWidth: {
         container: "1280px",

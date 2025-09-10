@@ -1,0 +1,7 @@
+/* Switzer Font Import */
+@import url('https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap');
+
+/* Define Switzer font classes */
+.font-switzer {
+  font-family: 'Switzer', sans-serif;
+}

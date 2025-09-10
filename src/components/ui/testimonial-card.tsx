@@ -27,11 +27,12 @@ export function TestimonialCard({
       {...(href ? { href } : {})}
       className={cn(
         "flex flex-col rounded-lg border-t",
-        "bg-gradient-to-b from-muted/50 to-muted/10",
+        "bg-white shadow-md",
         "p-4 text-start sm:p-6",
-        "hover:from-muted/60 hover:to-muted/20",
+        "hover:shadow-lg",
         "max-w-[320px] sm:max-w-[320px]",
-        "transition-colors duration-300",
+        "h-[220px] sm:h-[230px] md:h-[240px]", // Fixed height for consistent sizing
+        "transition-all duration-300",
         className
       )}
     >
@@ -40,7 +41,7 @@ export function TestimonialCard({
           <AvatarImage src={author.avatar} alt={author.name} />
         </Avatar>
         <div className="flex flex-col items-start">
-          <h3 className="font-playfair text-md font-semibold leading-none">
+          <h3 className="font-sans text-md font-semibold leading-none">
             {author.name}
           </h3>
           <div className="flex text-yellow-400 mt-1">
@@ -62,9 +63,11 @@ export function TestimonialCard({
           </div>
         </div>
       </div>
-      <p className="font-body sm:text-md mt-4 text-sm text-muted-foreground">
-        {text}
-      </p>
+      <div className="flex-grow flex flex-col">
+        <p className="font-sans sm:text-md mt-4 text-sm text-stone-600 line-clamp-4">
+          {text}
+        </p>
+      </div>
     </Card>
   )
 }
