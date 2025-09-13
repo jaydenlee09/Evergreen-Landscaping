@@ -48,7 +48,6 @@ export function MarqueeTestimonialsDemo() {
   return (
     <MarqueeTestimonials
       title="What Our Clients Say"
-      description="Join hundreds of satisfied homeowners who have transformed their outdoor spaces with Arbutus Landscaping"
       testimonials={testimonials}
     />
   );

@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 
 interface MarqueeTestimonialsProps {
   title: string;
-  description: string;
   testimonials: Array<{
     author: TestimonialAuthor;
     text: string;
@@ -15,31 +14,37 @@ interface MarqueeTestimonialsProps {
 
 export default function MarqueeTestimonials({
   title,
-  description,
   testimonials,
 }: MarqueeTestimonialsProps) {
   return (
     <section className="py-12 sm:py-16 md:py-24 bg-stone-50 w-full overflow-hidden">
       <div className="container mx-auto px-5 sm:px-6">
         <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-12 md:mb-16">
-          <motion.h2 
-            className="font-sans text-2xl sm:text-3xl md:text-5xl font-bold text-forest-800 mb-4 sm:mb-6"
+          {/* Section Label */}
+          <motion.div 
+            className="flex items-center justify-center mb-6"
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
-            {title}
-          </motion.h2>
-          <motion.p 
-            className="font-sans text-base sm:text-lg md:text-xl text-stone-600 max-w-3xl mx-auto px-2"
+            <div className="h-px bg-forest-600 w-16 sm:w-24"></div>
+            <span className="px-4 text-forest-600 font-switzer font-medium text-sm uppercase tracking-wider">
+              OUR TESTIMONIALS
+            </span>
+            <div className="h-px bg-forest-600 w-16 sm:w-24"></div>
+          </motion.div>
+          
+          {/* Main Heading */}
+          <motion.h2 
+            className="font-switzer text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-forest-800 leading-tight"
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
+            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
           >
-            {description}
-          </motion.p>
+            {title}
+          </motion.h2>
         </div>
         
         <motion.div 
